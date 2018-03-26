@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <p-growl [(value)]="msgs"></p-growl>
+  <div>
+    <p-dataScroller [value]="data" [rows]="10" [inline]="true" scrollHeight="500px">
+      <p-header>
+        Todo List
+      </p-header>
+      <ng-template let-car pTemplate="item">
+        <div class="ui-g car-item">
+          <div class="ui-g-12 ui-md-3">
+            <i class="fa fa-minus-circle" aria-hidden="true" (click)="delete(car)"></i>
+          </div>
+          <div class="ui-g-12 ui-md-9">
+            <div class="ui-g">
+              <div class="ui-g-2 ui-sm-6">List:</div>
+              <div class="ui-g-10 ui-sm-6">{{car}}</div>
+
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </p-dataScroller>
+  </div>
+  <div class="card">
+    <p-card>
+      <p-header>
+        <div class="row">
+          <div class="col-md-12">
+            <h5>ADD TODO LIST</h5>
+          </div>
+        </div>
+      </p-header>
+      <div class="row">
+        <div class="col-md-12">
+          <input type="text" class="form-control" [(ngModel)]="list">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 btn-post">
+          <button class="btn btn-primary" (click)="add()" >Post</button>
+        </div>
+      </div>
+    </p-card>
+  </div>
+</div>
